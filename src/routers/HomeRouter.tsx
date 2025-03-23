@@ -12,7 +12,7 @@ export default function HomeRouter() {
 
     return <Stack.Navigator
         screenOptions={{
-            headerShown: false
+            headerShown: false,
         }}>
         <Stack.Screen name="root" >
             {(props) => <HomeScreen {...props} />}

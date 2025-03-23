@@ -1,4 +1,3 @@
-// import AppFonts from '@assets/fonts/AppFonts';
 import { View, Text, Image, StyleSheet, Pressable, StyleProp, ViewStyle } from 'react-native';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import React from 'react';
@@ -83,7 +82,7 @@ export default function CustomTabbar({ state, descriptors, navigation }: BottomT
 }
 
 const TabType: Record<string, string> = {
-    home: 'Overview',
+    home: 'OverView',
     trades: 'Trades',
     market: 'Market',
     transactions: 'Transactions',
@@ -113,8 +112,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     tabLabel: {
-        // fontFamily: AppFonts.regular,
-        fontSize: 12,
+        fontFamily: 'Manrope-Bold',
+        fontSize: 10,
         marginTop: 5,
         marginBottom: 10,
         alignSelf: 'center',
