@@ -26,6 +26,7 @@ function TabsRouter() {
             tabBar={props => getTabbar(props)}
             initialRouteName="home"
             screenOptions={{
+                headerShown: false,
                 tabBarActiveTintColor: appColors.brand.red,
                 tabBarInactiveTintColor: appColors.neutral.gray,
             }}
