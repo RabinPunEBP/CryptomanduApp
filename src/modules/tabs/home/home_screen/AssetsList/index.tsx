@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         borderRadius: 8,
-        borderColor: '#FFFFFF14',
+        borderColor: AppColors().default.borderColor,
         borderWidth: 1,
     },
     headerContainer: {

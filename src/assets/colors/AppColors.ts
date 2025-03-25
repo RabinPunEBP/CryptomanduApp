@@ -28,6 +28,7 @@ export default function AppColors() {
         loaderColor: '#E3000E',
         default: Object.freeze({
             background: '#1A1C21',
+            borderColor: '#FFFFFF14',
             backgroundSecondary: 'white',
             segmentedBackground: '#F4F3F6',
             white: 'white',

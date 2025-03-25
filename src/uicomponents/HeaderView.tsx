@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ImageButton from './ImageButton';
+import AppColors from '../assets/colors/AppColors';
 
 export const HeaderView = (props: HeaderViewProps) => {
 
     const { title, onBackButtonPress, headerButtons } = props;
 
-    return <View style={styles.header}>
+    return <View style={{ ...styles.header, ...(onBackButtonPress && { borderBottomColor: AppColors().default.borderColor, borderBottomWidth: 2 }) }}>
         <View style={styles.headerTitleContainer}>
-
             {
                 onBackButtonPress &&
                 <ImageButton style={styles.backButton} source={require('../assets/images/chevron_left_icon.png')} onPress={onBackButtonPress} />
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 16,
+        paddingBottom: 16,
+        paddingHorizontal: 16,
     },
     headerTitleContainer: {
         flexDirection: 'row',

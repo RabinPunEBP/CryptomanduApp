@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     gradientView: {
         borderRadius: 10,
-        borderColor: '#FFFFFF14',
+        borderColor: AppColors().default.borderColor,
         borderWidth: 1,
     },
     card: {

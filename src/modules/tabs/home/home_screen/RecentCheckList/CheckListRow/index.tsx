@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import AppColors from '../../../../../../assets/colors/AppColors';
 
 export const CheckListRow = (props: CHeckListRowProps) => {
     const { title, description } = props;
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     },
     gradient: {
         borderRadius: 8,
-        borderColor: '#FFFFFF14',
+        borderColor: AppColors().default.borderColor,
         borderWidth: 1,
     },
     title: {
