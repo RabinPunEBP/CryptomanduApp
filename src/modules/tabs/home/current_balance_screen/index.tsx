@@ -6,6 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { HeaderView } from '../../../../uicomponents/HeaderView';
 import { CurrentBalanceCard } from './CurrentBalanceCard';
+import { ChartView } from '../../../../uicomponents/ChartView';
+import { IncomeExpenseView } from './IncomeExpenseView';
 
 interface CurrentBalanceScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -18,6 +20,8 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
             <HeaderView title="Current Balance" onBackButtonPress={navigation.goBack} />
             <View style={styles.body}>
                 <CurrentBalanceCard />
+                <ChartView />
+                <IncomeExpenseView />
             </View>
         </ScrollView>
     </SafeAreaView >;
