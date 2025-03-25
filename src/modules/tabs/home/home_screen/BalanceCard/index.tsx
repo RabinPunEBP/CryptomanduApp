@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import AppColors from '../../../../assets/colors/AppColors';
+import AppColors from '../../../../../assets/colors/AppColors';
 
 export const BalanceCard = () => {
     const { width } = Dimensions.get('screen');
@@ -14,13 +14,13 @@ export const BalanceCard = () => {
         style={styles.gradientView}
     >
         <View style={styles.card}>
-            <Image source={require('../../../../assets/images/background_image.png')} style={{ position: 'absolute', height: imageWidth, width: imageWidth, resizeMode: 'contain', top: (-imageWidth * 0.78), right: (-imageWidth * 0.45) }} />
+            <Image source={require('../../../../../assets/images/background_image.png')} style={{ position: 'absolute', height: imageWidth, width: imageWidth, resizeMode: 'contain', top: (-imageWidth * 0.78), right: (-imageWidth * 0.45) }} />
             <Text style={styles.cardTitle}>Current Balance</Text>
             <View style={{ ...styles.flexRowCenter, marginVertical: 12 }}>
                 <Text style={styles.balance}>$49K</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <View style={styles.statusContainer}>
-                        <Image source={require('../../../../assets/images/status_down_icon.png')} style={styles.statusIcon} />
+                        <Image source={require('../../../../../assets/images/status_down_icon.png')} style={styles.statusIcon} />
                         <Text style={styles.statusText}>$9,600</Text>
                     </View>
                     <Text style={styles.statusText}>since last month</Text>
@@ -28,14 +28,14 @@ export const BalanceCard = () => {
             </View>
             <View style={styles.incomeExpenditureContainer}>
                 <View style={{ flex: 1, ...styles.flexRowCenter }}>
-                    <Image source={require('../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
+                    <Image source={require('../../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
                     <View style={{ marginLeft: 6 }}>
                         <Text style={styles.incomeText}>Income</Text>
                         <Text style={styles.incomeBalance}>$9,600</Text>
                     </View>
                 </View>
                 <View style={{ marginLeft: 16, flex: 1, ...styles.flexRowCenter }}>
-                    <Image source={require('../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
+                    <Image source={require('../../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
                     <View style={{ marginLeft: 6 }}>
                         <Text style={styles.incomeText}>Income</Text>
                         <Text style={styles.incomeBalance}>$9,600</Text>

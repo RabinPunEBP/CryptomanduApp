@@ -2,7 +2,7 @@ import { LayoutChangeEvent, LayoutRectangle, Pressable, StyleSheet, Text, View }
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
 import { CheckListRow } from './CheckListRow';
 import { useState } from 'react';
-import AppColors from '../../../../assets/colors/AppColors';
+import AppColors from '../../../../../assets/colors/AppColors';
 
 export const RecentCheckList = () => {
 

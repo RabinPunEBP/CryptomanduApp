@@ -1,12 +1,12 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleSheet } from 'react-native';
-import AppColors from '../../../assets/colors/AppColors';
-import { HomeNavigationParams } from '../../../routers/HomeRouter';
+import AppColors from '../../../../assets/colors/AppColors';
+import { HomeNavigationParams } from '../../../../routers/HomeRouter';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
-import { BalanceCard } from './BalanceCard';
-import { HeaderView } from '../../../uicomponents/HeaderView';
+import { HeaderView } from '../../../../uicomponents/HeaderView';
 import { RecentCheckList } from './RecentCheckList';
+import { BalanceCard } from './BalanceCard';
 import { AssetsList } from './AssetsList';
 
 interface HomeScreenProps {

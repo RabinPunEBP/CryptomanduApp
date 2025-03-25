@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import AppColors from '../../../../../assets/colors/AppColors';
+import AppColors from '../../../../../../assets/colors/AppColors';
 
 export const AssetsListRow = (props: AssetsListRowProps) => {
     const { item } = props;

@@ -11,13 +11,13 @@ export const CheckListRow = (props: CHeckListRowProps) => {
     >
         <View style={styles.contentContainer}>
             <View style={styles.flexRowCenter}>
-                <Image style={styles.transactionIcon} source={require('../../../../../assets/images/review_transactions_icon.png')} />
+                <Image style={styles.transactionIcon} source={require('../../../../../../assets/images/review_transactions_icon.png')} />
                 <View>
                     <Text style={styles.title}>{title}</Text>
                     <Text style={styles.caption}>{description}</Text>
                 </View>
             </View>
-            <Image style={styles.chevronIcon} source={require('../../../../../assets/images/chevron_right_icon.png')} />
+            <Image style={styles.chevronIcon} source={require('../../../../../../assets/images/chevron_right_icon.png')} />
         </View>
     </LinearGradient>;
 };

@@ -1,7 +1,7 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
-import AppColors from "../../../../assets/colors/AppColors";
-import LinearGradient from "react-native-linear-gradient";
-import { AssetsListRow, TransactionInformation } from "./AssetsListRow";
+import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import { AssetsListRow, TransactionInformation } from './AssetsListRow';
+import AppColors from '../../../../../assets/colors/AppColors';
 
 export const AssetsList = () => {
 
@@ -40,7 +40,7 @@ export const AssetsList = () => {
             description: 'Lorem iopusm ewefihbv hiev cihwbvbhwbvehb',
             amount: '10000',
             gain: false,
-        }
+        },
     ];
 
     const renderItem = ({ item }: { item: TransactionInformation; }) => {

@@ -1,5 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen } from '../modules/tabs/home/HomeScreen';
+import { HomeScreen } from '../modules/tabs/home/home_screen';
 
 const Stack = createStackNavigator<HomeNavigationParams>();
 
