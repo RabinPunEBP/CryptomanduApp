@@ -30,7 +30,7 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
     return <SafeAreaView edges={['right', 'left', 'top']} style={styles.screen}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
             <HeaderView title="Cryptomandu" headerButtons={headerButtons} />
-            <BalanceCard />
+            <BalanceCard onPress={() => navigation.navigate('current_balance')} />
             <RecentCheckList />
             <AssetsList />
         </ScrollView>

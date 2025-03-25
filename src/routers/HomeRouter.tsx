@@ -1,5 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from '../modules/tabs/home/home_screen';
+import { CurrentBalanceScreen } from '../modules/tabs/home/current_balance_screen';
 
 const Stack = createStackNavigator<HomeNavigationParams>();
 
@@ -16,6 +17,9 @@ export default function HomeRouter() {
         }}>
         <Stack.Screen name="root" >
             {(props) => <HomeScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="current_balance" >
+            {(props) => <CurrentBalanceScreen {...props} />}
         </Stack.Screen>
     </Stack.Navigator>;
 }

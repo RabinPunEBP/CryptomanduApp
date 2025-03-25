@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppColors from '../../../../../assets/colors/AppColors';
 
-export const BalanceCard = () => {
+export const BalanceCard = (props: BalanceCardProps) => {
     const { width } = Dimensions.get('screen');
     const imageWidth = width * 1.5;
 
@@ -13,7 +13,7 @@ export const BalanceCard = () => {
         end={{ x: 0.3, y: 1 }}
         style={styles.gradientView}
     >
-        <View style={styles.card}>
+        <Pressable style={styles.card} onPress={props.onPress}>
             <Image source={require('../../../../../assets/images/background_image.png')} style={{ position: 'absolute', height: imageWidth, width: imageWidth, resizeMode: 'contain', top: (-imageWidth * 0.78), right: (-imageWidth * 0.45) }} />
             <Text style={styles.cardTitle}>Current Balance</Text>
             <View style={{ ...styles.flexRowCenter, marginVertical: 12 }}>
@@ -42,9 +42,13 @@ export const BalanceCard = () => {
                     </View>
                 </View>
             </View>
-        </View>
+        </Pressable>
     </LinearGradient>;
 };
+
+interface BalanceCardProps {
+    onPress?: () => void;
+}
 
 const styles = StyleSheet.create({
     flexRowCenter: {

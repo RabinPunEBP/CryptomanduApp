@@ -6,11 +6,14 @@ export const HeaderView = (props: HeaderViewProps) => {
     const { title, onBackButtonPress, headerButtons } = props;
 
     return <View style={styles.header}>
-        {
-            onBackButtonPress &&
-            <ImageButton style={styles.backButton} source={require('../assets/images/chevron_left_icon.png')} onPress={onBackButtonPress} />
-        }
-        <Text style={styles.headerTitle}>{title}</Text>
+        <View style={styles.headerTitleContainer}>
+
+            {
+                onBackButtonPress &&
+                <ImageButton style={styles.backButton} source={require('../assets/images/chevron_left_icon.png')} onPress={onBackButtonPress} />
+            }
+            <Text style={styles.headerTitle}>{title}</Text>
+        </View>
         {
             headerButtons &&
             <View style={styles.headerButtons}>
@@ -32,6 +35,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 16,
     },
+    headerTitleContainer: {
+        flexDirection: 'row',
+    },
     headerTitle: {
         fontFamily: 'Manrope-Bold',
         fontSize: 18,
@@ -49,5 +55,8 @@ const styles = StyleSheet.create({
     backButton: {
         height: 24,
         width: 24,
+        marginRight: 16,
+        paddingVertical: 4,
+        resizeMode: 'contain',
     },
 });
