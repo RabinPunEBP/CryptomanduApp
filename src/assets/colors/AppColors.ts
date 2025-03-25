@@ -8,7 +8,8 @@ export default function AppColors() {
         }),
         semantics: Object.freeze({
             success: '#B9F6CA',
-            failure: '#F83F54'
+            failure: '#F83F54',
+            warning: "#FFCB74",
         }),
         neutral: Object.freeze({
             gray: '#9A9A9A',

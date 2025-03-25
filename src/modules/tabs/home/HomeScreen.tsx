@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { BalanceCard } from './BalanceCard';
 import { HeaderView } from '../../../uicomponents/HeaderView';
+import { RecentCheckList } from './RecentCheckList';
 
 interface HomeScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -19,6 +20,7 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
         <ScrollView style={styles.scrollView}>
             <HeaderView />
             <BalanceCard />
+            <RecentCheckList />
         </ScrollView>
     </SafeAreaView >;
 };

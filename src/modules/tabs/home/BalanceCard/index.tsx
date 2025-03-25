@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     },
     gradientView: {
         borderRadius: 10,
+        borderColor: '#FFFFFF14',
+        borderWidth: 1,
     },
     card: {
         padding: 24,
