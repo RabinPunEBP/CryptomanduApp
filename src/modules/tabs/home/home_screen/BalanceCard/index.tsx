@@ -107,5 +107,5 @@ const styles = StyleSheet.create({
         fontFamily: 'Manrope-Bold',
         fontSize: 14,
         color: '#ffffff',
-    }
+    },
 });

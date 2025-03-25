@@ -8,6 +8,8 @@ import { HeaderView } from '../../../../uicomponents/HeaderView';
 import { RecentCheckList } from './RecentCheckList';
 import { BalanceCard } from './BalanceCard';
 import { AssetsList } from './AssetsList';
+import { Fragment } from 'react';
+import ImageButton from '../../../../uicomponents/ImageButton';
 
 interface HomeScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -17,9 +19,17 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
     console.log(navigation);
 
+    const headerButtons = () => {
+        return <Fragment>
+            <ImageButton style={styles.headerButton} source={require('../../../../assets/images/add_icon.png')} onPress={() => { }} />
+            <ImageButton style={styles.headerButton} source={require('../../../../assets/images/bell_icon.png')} onPress={() => { }} />
+            <ImageButton style={styles.headerButton} source={require('../../../../assets/images/menu_icon.png')} onPress={() => { }} />
+        </Fragment>;
+    };
+
     return <SafeAreaView edges={['right', 'left', 'top']} style={styles.screen}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-            <HeaderView />
+            <HeaderView title="Cryptomandu" headerButtons={headerButtons} />
             <BalanceCard />
             <RecentCheckList />
             <AssetsList />
@@ -35,5 +45,10 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         marginVertical: 16,
+    },
+    headerButton: {
+        height: 24,
+        width: 24,
+        marginHorizontal: 8,
     },
 });
