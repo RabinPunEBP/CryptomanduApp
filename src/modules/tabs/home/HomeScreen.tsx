@@ -7,6 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { BalanceCard } from './BalanceCard';
 import { HeaderView } from '../../../uicomponents/HeaderView';
 import { RecentCheckList } from './RecentCheckList';
+import { AssetsList } from './AssetsList';
 
 interface HomeScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -16,11 +17,12 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
     console.log(navigation);
 
-    return <SafeAreaView style={styles.screen}>
-        <ScrollView style={styles.scrollView}>
+    return <SafeAreaView edges={['right', 'left', 'top']} style={styles.screen}>
+        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
             <HeaderView />
             <BalanceCard />
             <RecentCheckList />
+            <AssetsList />
         </ScrollView>
     </SafeAreaView >;
 };

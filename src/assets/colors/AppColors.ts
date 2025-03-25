@@ -7,13 +7,13 @@ export default function AppColors() {
             red10: '#E3000E19',
         }),
         semantics: Object.freeze({
-            success: '#B9F6CA',
+            success: '#67DA9D',
             failure: '#F83F54',
             warning: "#FFCB74",
         }),
         neutral: Object.freeze({
             gray: '#9A9A9A',
-            gray05: '#3333330D',
+            gray05: '#CCCCCC',
             gray50: '#33333380',
             gray70: '#333333B3',
             grayLight: '#EDEBF0',
