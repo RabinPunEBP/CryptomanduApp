@@ -10,6 +10,7 @@ import { IncomeExpenseView } from './IncomeExpenseView';
 import { DateSegmentedControl } from './DateSegmentedControl';
 import { useState } from 'react';
 import { AreaChartView } from '../../../../uicomponents/AreaChartView';
+import BarPairWithLine, { IncomeExpenseData } from '../../../../uicomponents/BarGraphView';
 
 interface CurrentBalanceScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -19,7 +20,7 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
 
     const [selectedIndex, setSelectedIndex] = useState(5);
 
-    const datas = [
+    const areaChartData = [
         [
             { value: 10 },
             { value: 25 },
@@ -76,12 +77,196 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
         ],
     ];
 
+    const barGraphData: IncomeExpenseData[][] = [
+        [
+            {
+                income: 1000,
+                expense: 2500,
+            },
+            {
+                income: 2200,
+                expense: 2300,
+            },
+            {
+                income: 2000,
+                expense: 2100,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2200,
+                expense: 2000,
+            },
+            {
+                income: 2450,
+                expense: 2230,
+            },
+            {
+                income: 2600,
+                expense: 2200,
+            },
+        ],
+        [
+            {
+                income: 2200,
+                expense: 2300,
+            },
+            {
+                income: 2000,
+                expense: 2100,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2200,
+                expense: 2000,
+            },
+            {
+                income: 2450,
+                expense: 2230,
+            },
+            {
+                income: 2600,
+                expense: 2200,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+        ],
+        [
+            {
+                income: 2200,
+                expense: 2300,
+            },
+            {
+                income: 2000,
+                expense: 2100,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2200,
+                expense: 2000,
+            },
+            {
+                income: 2450,
+                expense: 2230,
+            },
+            {
+                income: 2600,
+                expense: 2200,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+        ],
+        [
+            {
+                income: 2200,
+                expense: 2000,
+            },
+            {
+                income: 2450,
+                expense: 2230,
+            },
+            {
+                income: 2200,
+                expense: 2300,
+            },
+            {
+                income: 2000,
+                expense: 2100,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2600,
+                expense: 2200,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+        ],
+        [
+            {
+                income: 2000,
+                expense: 2100,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2200,
+                expense: 2300,
+            },
+            {
+                income: 2200,
+                expense: 2000,
+            },
+            {
+                income: 2450,
+                expense: 2230,
+            },
+            {
+                income: 2600,
+                expense: 2200,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+        ],
+        [
+            {
+                income: 2000,
+                expense: 2100,
+            },
+            {
+                income: 2200,
+                expense: 2300,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2200,
+                expense: 2000,
+            },
+            {
+                income: 2450,
+                expense: 2230,
+            },
+            {
+                income: 2400,
+                expense: 2500,
+            },
+            {
+                income: 2600,
+                expense: 2200,
+            },
+        ],
+    ];
+
     return <SafeAreaView edges={['right', 'left', 'top']} style={styles.screen}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
             <HeaderView title="Current Balance" onBackButtonPress={navigation.goBack} />
             <View style={styles.body}>
                 <CurrentBalanceCard />
-                <AreaChartView data={datas[selectedIndex]} />
+                <AreaChartView data={areaChartData[selectedIndex]} />
+                <BarPairWithLine data={barGraphData[selectedIndex]} />
                 <DateSegmentedControl
                     selectedIndex={selectedIndex}
                     setSelectedIndex={setSelectedIndex}
