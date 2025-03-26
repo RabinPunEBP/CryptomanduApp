@@ -9,7 +9,7 @@ export const DateSegmentedControl = (props: DateSegmentedControlProps) => {
         {dates.map((date, index) => {
             const isSelected = index === selectedIndex;
             return <Pressable onPress={() => setSelectedIndex(index)} key={date} style={styles.textContainer}>
-                <Text style={{ ...styles.text, backgroundColor: isSelected ? AppColors().brand.orange8 : AppColors().default.background }}>
+                <Text style={{ ...styles.text, backgroundColor: isSelected ? AppColors().brand.orange8 : AppColors().default.background, color: isSelected ? AppColors().brand.orange : AppColors().neutral.gray05 }}>
                     {date}
                 </Text>
             </Pressable>;
@@ -31,9 +31,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     text: {
-        color: AppColors().brand.orange,
         textAlign: 'center',
         paddingVertical: 8,
         borderRadius: '25%',
+        fontFamily: 'Manrope-SemiBold',
+        fontSize: 10,
     },
 });

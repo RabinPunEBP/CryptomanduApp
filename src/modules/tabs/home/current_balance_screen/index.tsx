@@ -11,6 +11,7 @@ import { DateSegmentedControl } from './DateSegmentedControl';
 import { useState } from 'react';
 import { AreaChartView } from '../../../../uicomponents/AreaChartView';
 import BarPairWithLine, { IncomeExpenseData } from '../../../../uicomponents/BarGraphView';
+import { ChartSegmentedControl } from './ChartSegmentControl';
 
 interface CurrentBalanceScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -19,6 +20,7 @@ interface CurrentBalanceScreenProps {
 export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) => {
 
     const [selectedIndex, setSelectedIndex] = useState(5);
+    const [selectedChartIndex, setSelectedChartIndex] = useState(0);
 
     const areaChartData = [
         [
@@ -265,8 +267,13 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
             <HeaderView title="Current Balance" onBackButtonPress={navigation.goBack} />
             <View style={styles.body}>
                 <CurrentBalanceCard />
-                <AreaChartView data={areaChartData[selectedIndex]} />
-                <BarPairWithLine data={barGraphData[selectedIndex]} />
+                <ChartSegmentedControl
+                    selectedIndex={selectedChartIndex}
+                    setSelectedIndex={setSelectedChartIndex}
+                    types={['Trend Chart', 'Income / Expense']}
+                />
+                {selectedChartIndex === 0 && <AreaChartView data={areaChartData[selectedIndex]} />}
+                {selectedChartIndex === 1 && <BarPairWithLine data={barGraphData[selectedIndex]} />}
                 <DateSegmentedControl
                     selectedIndex={selectedIndex}
                     setSelectedIndex={setSelectedIndex}
