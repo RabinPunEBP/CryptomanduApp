@@ -7,7 +7,7 @@ export const CurrentBalanceCard = () => {
             $49,000.00
         </Text>
         <View style={styles.growth}>
-            <Image source={require('../../../../../assets/images/status_down_red_icon.png')} style={{ height: 14, width: 14 }} />
+            <Image source={require('../../../../../assets/images/status_down_red_icon.png')} style={styles.icon} />
             <Text style={{ ...styles.caption, color: AppColors().semantics.failure }} >
                 {' '}$9,600.00 (-5.1%)
             </Text>
@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
         fontFamily: 'Manrope-Medium',
         fontSize: 14,
         color: AppColors().neutral.gray05,
+    },
+    icon: {
+        height: 14,
+        width: 14,
     },
 });
 

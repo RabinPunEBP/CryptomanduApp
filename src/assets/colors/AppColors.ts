@@ -3,13 +3,13 @@ export default function AppColors() {
 
     return Object.freeze({
         brand: Object.freeze({
-            red: '#E3000E',
-            red10: '#E3000E19',
+            orange: '#FFCB74',
+            orange8: '#FFCB7414',
         }),
         semantics: Object.freeze({
             success: '#67DA9D',
             failure: '#F83F54',
-            warning: "#FFCB74",
+            warning: '#FFCB74',
         }),
         neutral: Object.freeze({
             gray: '#9A9A9A',
@@ -32,7 +32,7 @@ export default function AppColors() {
             backgroundSecondary: 'white',
             segmentedBackground: '#F4F3F6',
             white: 'white',
-            black: 'black'
+            black: 'black',
         }),
     });
 }
