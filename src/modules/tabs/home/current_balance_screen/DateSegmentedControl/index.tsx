@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 export const DateSegmentedControl = (props: DateSegmentedControlProps) => {
 
@@ -34,7 +35,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingVertical: 8,
         borderRadius: '25%',
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 10,
+        ...Typography.semiBold10,
     },
 });

@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 
 const IncomeView = (props: IncomeViewProps) => {
@@ -48,18 +49,12 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     status: {
-        fontFamily: 'Manrope-Medium',
-        fontSize: 14,
+        ...Typography.medium14,
         color: 'white',
     },
-    balance: {
-        fontFamily: 'Manrope-Bold',
-        fontSize: 14,
-        color: 'white',
-    },
+    balance: Typography.bold14,
     caption: {
-        fontFamily: 'Manrope-Medium',
-        fontSize: 11,
+        ...Typography.medium11,
         color: AppColors().neutral.gray05,
     },
     image: {

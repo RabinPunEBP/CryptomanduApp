@@ -2,6 +2,7 @@
 import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 export const BalanceCard = (props: BalanceCardProps) => {
     const { width } = Dimensions.get('screen');
@@ -63,14 +64,9 @@ const styles = StyleSheet.create({
     card: {
         padding: 24,
     },
-    cardTitle: {
-        fontFamily: 'Manrope-Bold',
-        fontSize: 14,
-        color: 'white',
-    },
+    cardTitle: Typography.bold14,
     balance: {
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 40,
+        ...Typography.semiBold40,
         color: 'white',
     },
     statusContainer: {
@@ -88,8 +84,7 @@ const styles = StyleSheet.create({
     },
     statusText: {
         paddingLeft: 4,
-        fontFamily: 'Manrope-Medium',
-        fontSize: 11,
+        ...Typography.medium11,
         color: 'white',
     },
     incomeExpenditureContainer: {
@@ -103,13 +98,8 @@ const styles = StyleSheet.create({
         width: 36,
     },
     incomeText: {
-        fontFamily: 'Manrope-Regular',
-        fontSize: 11,
+        ...Typography.regular11,
         color: 'white',
     },
-    incomeBalance: {
-        fontFamily: 'Manrope-Bold',
-        fontSize: 14,
-        color: 'white',
-    },
+    incomeBalance: Typography.bold14,
 });

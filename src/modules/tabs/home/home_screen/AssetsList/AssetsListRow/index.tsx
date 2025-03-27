@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../../styles/typography';
 
 export const AssetsListRow = (props: AssetsListRowProps) => {
     const { item } = props;
@@ -44,11 +45,7 @@ const styles = StyleSheet.create({
         color: 'white',
         marginLeft: 8,
         width: '75%',
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 12,
+        ...Typography.semiBold12,
     },
-    itemBalance: {
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 12,
-    },
+    itemBalance: Typography.semiBold12,
 });

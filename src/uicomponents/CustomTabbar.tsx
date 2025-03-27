@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AppImages from '../assets/images/AppImages';
 import AppColors from '../assets/colors/AppColors';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { Typography } from '../styles/typography';
 
 export default function CustomTabbar({ state, descriptors, navigation }: BottomTabBarProps) {
     const appColors = AppColors();
@@ -112,8 +113,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     tabLabel: {
-        fontFamily: 'Manrope-Bold',
-        fontSize: 10,
+        ...Typography.bold10,
         marginTop: 5,
         marginBottom: 10,
         alignSelf: 'center',

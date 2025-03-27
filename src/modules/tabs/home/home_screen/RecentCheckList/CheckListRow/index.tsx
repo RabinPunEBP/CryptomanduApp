@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AppColors from '../../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../../styles/typography';
 
 export const CheckListRow = (props: CHeckListRowProps) => {
     const { title, description } = props;
@@ -44,14 +45,9 @@ const styles = StyleSheet.create({
         borderColor: AppColors().default.borderColor,
         borderWidth: 1,
     },
-    title: {
-        fontFamily: 'Manrope-Bold',
-        fontSize: 14,
-        color: 'white',
-    },
+    title: Typography.bold14,
     caption: {
-        fontFamily: 'Manrope-Medium',
-        fontSize: 11,
+        ...Typography.medium11,
         color: 'white',
     },
     transactionIcon: {

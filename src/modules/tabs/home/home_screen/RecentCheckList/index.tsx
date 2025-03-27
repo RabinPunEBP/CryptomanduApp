@@ -3,6 +3,7 @@ import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
 import { CheckListRow } from './CheckListRow';
 import { useState } from 'react';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 export const RecentCheckList = () => {
 
@@ -75,14 +76,11 @@ const styles = StyleSheet.create({
     },
     header: {
         paddingVertical: 8,
-        fontFamily: 'Manrope-Bold',
-        fontSize: 14,
-        color: '#ffffff',
+        ...Typography.bold14,
     },
     showLess: {
         paddingVertical: 8,
-        fontFamily: 'Manrope-Medium',
-        fontSize: 11,
+        ...Typography.medium11,
         color: AppColors().semantics.warning,
     },
 });

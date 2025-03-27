@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 export const CurrentBalanceCard = () => {
     return <View style={styles.card}>
@@ -29,13 +30,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     balance: {
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 42,
+        ...Typography.semiBold42,
         color: 'white',
     },
     caption: {
-        fontFamily: 'Manrope-Medium',
-        fontSize: 14,
+        ...Typography.medium14,
         color: AppColors().neutral.gray05,
     },
     icon: {

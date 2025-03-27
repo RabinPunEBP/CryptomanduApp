@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import ImageButton from './ImageButton';
 import AppColors from '../assets/colors/AppColors';
+import { Typography } from '../styles/typography';
 
 export const HeaderView = (props: HeaderViewProps) => {
 
@@ -39,11 +40,7 @@ const styles = StyleSheet.create({
     headerTitleContainer: {
         flexDirection: 'row',
     },
-    headerTitle: {
-        fontFamily: 'Manrope-Bold',
-        fontSize: 18,
-        color: 'white',
-    },
+    headerTitle: Typography.bold18,
     headerButtons: {
         flexDirection: 'row',
         justifyContent: 'center',

@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { ruleTypes } from 'gifted-charts-core';
 import { BarChart } from 'react-native-gifted-charts';
 import AppColors from '../assets/colors/AppColors';
+import { Typography } from '../styles/typography';
 
 export interface IncomeExpenseData {
     income: number,
@@ -86,9 +87,9 @@ const styles = StyleSheet.create({
     text: {
         marginLeft: 10,
         color: AppColors().neutral.gray05,
-        fontFamily: 'Manrope-Medium', fontSize: 10,
+        ...Typography.medium11,
         textAlign: 'center',
-    }
+    },
 });
 
 export default BarGraphView;

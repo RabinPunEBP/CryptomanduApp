@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 export const ChartSegmentedControl = (props: ChartSegmentedControlProps) => {
 
@@ -38,7 +39,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingVertical: 8,
         borderRadius: '25%',
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 14,
+        ...Typography.semiBold14,
     },
 });

@@ -2,6 +2,7 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { AssetsListRow, TransactionInformation } from './AssetsListRow';
 import AppColors from '../../../../../assets/colors/AppColors';
+import { Typography } from '../../../../../styles/typography';
 
 export const AssetsList = () => {
 
@@ -80,14 +81,11 @@ const styles = StyleSheet.create({
     },
     header: {
         paddingVertical: 8,
-        fontFamily: 'Manrope-Bold',
-        fontSize: 14,
-        color: '#ffffff',
+        ...Typography.bold14,
     },
     showLess: {
         paddingVertical: 8,
-        fontFamily: 'Manrope-SemiBold',
-        fontSize: 12,
+        ...Typography.semiBold12,
         color: AppColors().neutral.gray05,
     },
 });
