@@ -1,50 +1,15 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { AssetsListRow, TransactionInformation } from './AssetsListRow';
+import { AssetsListRow, AssetInformation } from './AssetsListRow';
 import AppColors from '../../../../../assets/colors/AppColors';
 import { Typography } from '../../../../../styles/typography';
+import { useAssetStore } from '../../../../../store/assets_store';
 
 export const AssetsList = () => {
 
-    const data: TransactionInformation[] = [
-        {
-            id: '0',
-            coinImgUrl: 'https://cryptologos.cc/logos/thumbs/bitcoin.png?v=040',
-            description: 'Lorem iopusm ewefihbv hiev cihwbvbhwbvehb',
-            amount: '10000',
-            gain: false,
-        },
-        {
-            id: '1',
-            coinImgUrl: 'https://cryptologos.cc/logos/thumbs/ethereum.png?v=040',
-            description: 'Lorem iopusm ewefihbv hiev cihwbvbhwbvehb',
-            amount: '9000',
-            gain: true,
-        },
-        {
-            id: '2',
-            coinImgUrl: 'https://cryptologos.cc/logos/thumbs/usd-coin.png?v=040',
-            description: 'Lorem iopusm ewefihbv hiev cihwbvbhwbvehb',
-            amount: '6000',
-            gain: false,
-        },
-        {
-            id: '3',
-            coinImgUrl: 'https://cryptologos.cc/logos/thumbs/tether.png?v=040',
-            description: 'Lorem iopusm ewefihbv hiev cihwbvbhwbvehb',
-            amount: '4000',
-            gain: true,
-        },
-        {
-            id: '4',
-            coinImgUrl: 'https://cryptologos.cc/logos/thumbs/solana.png?v=040',
-            description: 'Lorem iopusm ewefihbv hiev cihwbvbhwbvehb',
-            amount: '10000',
-            gain: false,
-        },
-    ];
+    const { assets } = useAssetStore();
 
-    const renderItem = ({ item }: { item: TransactionInformation; }) => {
+    const renderItem = ({ item }: { item: AssetInformation; }) => {
         return <AssetsListRow item={item} />;
     };
 
@@ -61,7 +26,7 @@ export const AssetsList = () => {
             end={{ x: 0, y: 1 }}
             style={styles.contentContainer}
         >
-            <FlatList scrollEnabled={false} showsHorizontalScrollIndicator={false} bounces={false} data={data} renderItem={renderItem} keyExtractor={(item) => item.id} />
+            <FlatList scrollEnabled={false} showsHorizontalScrollIndicator={false} bounces={false} data={assets} renderItem={renderItem} keyExtractor={(item) => item.id} />
         </LinearGradient>
     </View>;
 };

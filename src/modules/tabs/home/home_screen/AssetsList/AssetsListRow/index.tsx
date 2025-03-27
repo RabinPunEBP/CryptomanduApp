@@ -14,10 +14,10 @@ export const AssetsListRow = (props: AssetsListRowProps) => {
 };
 
 interface AssetsListRowProps {
-    item: TransactionInformation;
+    item: AssetInformation;
 }
 
-export interface TransactionInformation {
+export interface AssetInformation {
     id: string;
     coinImgUrl: string;
     description: string;

@@ -11,6 +11,7 @@ import { AssetsList } from './AssetsList';
 import { Fragment, useEffect } from 'react';
 import ImageButton from '../../../../uicomponents/ImageButton';
 import UserApiService from '../../../../api_services/UserApiService';
+import AssetsApiService from '../../../../api_services/AssetsApiService';
 
 interface HomeScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -19,15 +20,25 @@ interface HomeScreenProps {
 export const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
     const { getPortfolio } = UserApiService();
+    const { getAssets } = AssetsApiService();
 
     useEffect(() => {
-        fetPortfolioData();
+        fetchPortfolioData();
+        fetchAssets();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const fetPortfolioData = async () => {
+    const fetchPortfolioData = async () => {
         try {
             await getPortfolio();
+        } catch (e) {
+            Alert.alert('Port folio fetch failure.');
+        }
+    };
+
+    const fetchAssets = async () => {
+        try {
+            await getAssets();
         } catch (e) {
             Alert.alert('Port folio fetch failure.');
         }

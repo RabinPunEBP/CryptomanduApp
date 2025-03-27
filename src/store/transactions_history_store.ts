@@ -19,7 +19,7 @@ export const useTransactionsHistoryStore = create<TransactionsHistoryState>()(
             },
         }),
         {
-            name: 'user-store',
+            name: 'transaction-history-store',
             storage: createJSONStorage(() => asyncStorage),
         }
     )
