@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { NetworkClient } from './NetworkClient';
 import { API } from './API';
+import { useUserStore } from '../store/user_store';
 
 interface IncomeExpenseInfo {
     last_month: number,
     change: number;
 }
-interface GetPortFolioResponse {
+
+export interface GetPortFolioResponse {
     current_balance: number,
     income: IncomeExpenseInfo,
     expense: IncomeExpenseInfo,
@@ -16,10 +18,11 @@ interface GetPortFolioResponse {
 export default function UserApiService() {
 
     const abortController = new AbortController();
+    const { updatePortfolio } = useUserStore();
 
     const getPortfolio = async () => {
         const response: GetPortFolioResponse = await NetworkClient('get', API.user.getPortfolio, abortController.signal);
-        return response;
+        updatePortfolio(response);
     };
 
     useEffect(() => {

@@ -3,8 +3,12 @@ import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-nati
 import LinearGradient from 'react-native-linear-gradient';
 import AppColors from '../../../../../assets/colors/AppColors';
 import { Typography } from '../../../../../styles/typography';
+import { useUserStore } from '../../../../../store/user_store';
 
 export const BalanceCard = (props: BalanceCardProps) => {
+
+    const { portfolio } = useUserStore();
+
     const { width } = Dimensions.get('screen');
     const imageWidth = width * 1.5;
 
@@ -18,11 +22,11 @@ export const BalanceCard = (props: BalanceCardProps) => {
             <Image source={require('../../../../../assets/images/background_image.png')} style={{ position: 'absolute', height: imageWidth, width: imageWidth, resizeMode: 'contain', top: (-imageWidth * 0.78), right: (-imageWidth * 0.45) }} />
             <Text style={styles.cardTitle}>Current Balance</Text>
             <View style={{ ...styles.flexRowCenter, marginVertical: 12 }}>
-                <Text style={styles.balance}>$49K</Text>
+                <Text style={styles.balance}>{portfolio.current_balance}</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <View style={styles.statusContainer}>
                         <Image source={require('../../../../../assets/images/status_down_icon.png')} style={styles.statusIcon} />
-                        <Text style={styles.statusText}>$9,600</Text>
+                        <Text style={styles.statusText}>{portfolio.income.last_month}</Text>
                     </View>
                     <Text style={styles.statusText}>since last month</Text>
                 </View>
@@ -32,14 +36,14 @@ export const BalanceCard = (props: BalanceCardProps) => {
                     <Image source={require('../../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
                     <View style={{ marginLeft: 6 }}>
                         <Text style={styles.incomeText}>Income</Text>
-                        <Text style={styles.incomeBalance}>$9,600</Text>
+                        <Text style={styles.incomeBalance}>{portfolio.income.last_month}</Text>
                     </View>
                 </View>
                 <View style={{ marginLeft: 16, flex: 1, ...styles.flexRowCenter }}>
-                    <Image source={require('../../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
+                    <Image source={require('../../../../../assets/images/expense_icon.png')} style={styles.incomeIcon} />
                     <View style={{ marginLeft: 6 }}>
-                        <Text style={styles.incomeText}>Income</Text>
-                        <Text style={styles.incomeBalance}>$9,600</Text>
+                        <Text style={styles.incomeText}>Expense</Text>
+                        <Text style={styles.incomeBalance}>{portfolio.expense.last_month}</Text>
                     </View>
                 </View>
             </View>

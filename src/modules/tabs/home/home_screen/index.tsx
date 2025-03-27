@@ -1,5 +1,5 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import { StyleSheet } from 'react-native';
+import { Alert, StyleSheet } from 'react-native';
 import AppColors from '../../../../assets/colors/AppColors';
 import { HomeNavigationParams } from '../../../../routers/HomeRouter';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,14 +8,30 @@ import { HeaderView } from '../../../../uicomponents/HeaderView';
 import { RecentCheckList } from './RecentCheckList';
 import { BalanceCard } from './BalanceCard';
 import { AssetsList } from './AssetsList';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import ImageButton from '../../../../uicomponents/ImageButton';
+import UserApiService from '../../../../api_services/UserApiService';
 
 interface HomeScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
 }
 
 export const HomeScreen = ({ navigation }: HomeScreenProps) => {
+
+    const { getPortfolio } = UserApiService();
+
+    useEffect(() => {
+        fetPortfolioData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const fetPortfolioData = async () => {
+        try {
+            await getPortfolio();
+        } catch (e) {
+            Alert.alert('Port folio fetch failure.');
+        }
+    };
 
     const headerButtons = () => {
         return <Fragment>

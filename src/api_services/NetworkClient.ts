@@ -11,8 +11,6 @@ export async function NetworkClient<Type>(type: 'post' | 'get', url: string, dat
         }
     } catch (error) {
         const networkError = error as AxiosError;
-        console.log('Nerror');
-        console.log(error);
         if (networkError.message.includes('code 500')) {
             throw new Error('Something went wrong.\nPlease try again.');
         } else {

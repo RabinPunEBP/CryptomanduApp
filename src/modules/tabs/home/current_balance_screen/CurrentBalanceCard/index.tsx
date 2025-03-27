@@ -1,16 +1,20 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../assets/colors/AppColors';
 import { Typography } from '../../../../../styles/typography';
+import { useUserStore } from '../../../../../store/user_store';
 
 export const CurrentBalanceCard = () => {
+
+    const { portfolio } = useUserStore();
+
     return <View style={styles.card}>
         <Text style={styles.balance} >
-            $49,000.00
+            {portfolio.current_balance}
         </Text>
         <View style={styles.growth}>
             <Image source={require('../../../../../assets/images/status_down_red_icon.png')} style={styles.icon} />
             <Text style={{ ...styles.caption, color: AppColors().semantics.failure }} >
-                {' '}$9,600.00 (-5.1%)
+                {' '}{portfolio.income.last_month} ({portfolio.percent_change}%)
             </Text>
             <Text style={styles.caption} >
                 {' '}since last month
