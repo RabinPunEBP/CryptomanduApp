@@ -2,21 +2,16 @@ import { View, Text, Image, StyleSheet, Pressable, StyleProp, ViewStyle } from '
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import AppImages from '../assets/images/AppImages';
 import AppColors from '../assets/colors/AppColors';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Typography } from '../styles/typography';
 
 export default function CustomTabbar({ state, descriptors, navigation }: BottomTabBarProps) {
     const appColors = AppColors();
-    const appImages = AppImages();
-    console.log(state, descriptors);
 
     const { bottom } = useSafeAreaInsets();
 
     const getIcon = (type: string, isActive: boolean) => {
-        console.log(type);
-        console.log(appImages.tabs);
         switch (type) {
             case 'home': return isActive ? require('../assets/images/tabicons/home_selected.png') : require('../assets/images/tabicons/home.png');
             case 'trades': return isActive ? require('../assets/images/tabicons/trades_selected.png') : require('../assets/images/tabicons/trades.png');

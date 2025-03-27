@@ -17,8 +17,6 @@ interface HomeScreenProps {
 
 export const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
-    console.log(navigation);
-
     const headerButtons = () => {
         return <Fragment>
             <ImageButton style={styles.headerButton} source={require('../../../../assets/images/add_icon.png')} onPress={() => { }} />

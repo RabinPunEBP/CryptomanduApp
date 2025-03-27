@@ -1,5 +1,5 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import { StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View } from 'react-native';
 import AppColors from '../../../../assets/colors/AppColors';
 import { HomeNavigationParams } from '../../../../routers/HomeRouter';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,10 +8,11 @@ import { HeaderView } from '../../../../uicomponents/HeaderView';
 import { CurrentBalanceCard } from './CurrentBalanceCard';
 import { IncomeExpenseView } from './IncomeExpenseView';
 import { DateSegmentedControl } from './DateSegmentedControl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AreaChartView } from '../../../../uicomponents/AreaChartView';
-import BarPairWithLine, { IncomeExpenseData } from '../../../../uicomponents/BarGraphView';
+import BarPairWithLine from '../../../../uicomponents/BarGraphView';
 import { ChartSegmentedControl } from './ChartSegmentControl';
+import ChartApiService, { GetChartDataResponse } from '../../../../api_services/ChartApiService';
 
 interface CurrentBalanceScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -22,221 +23,23 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
     const [selectedIndex, setSelectedIndex] = useState(5);
     const [selectedChartIndex, setSelectedChartIndex] = useState(0);
 
-    const areaChartData = [
-        [
-            { value: 10 },
-            { value: 25 },
-            { value: 20 },
-            { value: 22 },
-            { value: 17 },
-            { value: 30 },
-            { value: 30 },
-        ],
-        [
-            { value: 20 },
-            { value: 17 },
-            { value: 10 },
-            { value: 22 },
-            { value: 25 },
-            { value: 30 },
-            { value: 30 },
-        ],
-        [
-            { value: 10 },
-            { value: 25 },
-            { value: 20 },
-            { value: 17 },
-            { value: 30 },
-            { value: 22 },
-            { value: 30 },
-        ],
-        [
-            { value: 20 },
-            { value: 17 },
-            { value: 25 },
-            { value: 22 },
-            { value: 10 },
-            { value: 30 },
-            { value: 30 },
-        ],
-        [
-            { value: 10 },
-            { value: 20 },
-            { value: 17 },
-            { value: 25 },
-            { value: 22 },
-            { value: 30 },
-            { value: 30 },
-        ],
-        [
-            { value: 10 },
-            { value: 20 },
-            { value: 25 },
-            { value: 22 },
-            { value: 17 },
-            { value: 30 },
-            { value: 30 },
-        ],
-    ];
+    const [chartData, setChartData] = useState<GetChartDataResponse>();
 
-    const barGraphData: IncomeExpenseData[][] = [
-        [
-            {
-                income: 2200,
-                expense: 2300,
-            },
-            {
-                income: 2000,
-                expense: 2100,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-            {
-                income: 2200,
-                expense: 2000,
-            },
-            {
-                income: 2450,
-                expense: 2230,
-            },
-            {
-                income: 2600,
-                expense: 2200,
-            },
-        ],
-        [
-            {
-                income: 2000,
-                expense: 2100,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-            {
-                income: 2200,
-                expense: 2000,
-            },
-            {
-                income: 2450,
-                expense: 2230,
-            },
-            {
-                income: 2600,
-                expense: 2200,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-        ],
-        [
-            {
-                income: 2200,
-                expense: 2300,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-            {
-                income: 2200,
-                expense: 2000,
-            },
-            {
-                income: 2450,
-                expense: 2230,
-            },
-            {
-                income: 2600,
-                expense: 2200,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-        ],
-        [
-            {
-                income: 2200,
-                expense: 2000,
-            },
-            {
-                income: 2200,
-                expense: 2300,
-            },
-            {
-                income: 2000,
-                expense: 2100,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-            {
-                income: 2600,
-                expense: 2200,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-        ],
-        [
-            {
-                income: 2000,
-                expense: 2100,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-            {
-                income: 2200,
-                expense: 2000,
-            },
-            {
-                income: 2450,
-                expense: 2230,
-            },
-            {
-                income: 2600,
-                expense: 2200,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-        ],
-        [
-            {
-                income: 2000,
-                expense: 2100,
-            },
-            {
-                income: 2200,
-                expense: 2300,
-            },
-            {
-                income: 2200,
-                expense: 2000,
-            },
-            {
-                income: 2450,
-                expense: 2230,
-            },
-            {
-                income: 2400,
-                expense: 2500,
-            },
-            {
-                income: 2600,
-                expense: 2200,
-            },
-        ],
-    ];
+    const { getChartdata } = ChartApiService();
+
+    useEffect(() => {
+        fetChartData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const fetChartData = async () => {
+        try {
+            const data = await getChartdata();
+            setChartData(data);
+        } catch (e) {
+            Alert.alert('Chart data fetch failure.');
+        }
+    };
 
     return <SafeAreaView edges={['right', 'left', 'top']} style={styles.screen}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -248,8 +51,8 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
                     setSelectedIndex={setSelectedChartIndex}
                     types={['Trend Chart', 'Income / Expense']}
                 />
-                {selectedChartIndex === 0 && <AreaChartView data={areaChartData[selectedIndex]} />}
-                {selectedChartIndex === 1 && <BarPairWithLine data={barGraphData[selectedIndex]} />}
+                {selectedChartIndex === 0 && chartData && <AreaChartView data={(chartData.area_chart.data)[selectedIndex]} />}
+                {selectedChartIndex === 1 && chartData && <BarPairWithLine data={(chartData.line_chart.data)[selectedIndex]} />}
                 <DateSegmentedControl
                     selectedIndex={selectedIndex}
                     setSelectedIndex={setSelectedIndex}

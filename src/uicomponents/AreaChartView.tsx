@@ -35,8 +35,12 @@ export const AreaChartView = (props: AreaChartViewProps) => {
     </View>;
 };
 
+export interface TrendData {
+    value: number;
+}
+
 interface AreaChartViewProps {
-    data: { value: number; }[];
+    data: TrendData[];
 }
 
 const styles = StyleSheet.create({
