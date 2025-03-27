@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppColors from '../../../../../assets/colors/AppColors';
 import { Typography } from '../../../../../styles/typography';
+import { useUserStore } from '../../../../../store/user_store';
 
 
 const IncomeView = (props: IncomeViewProps) => {
@@ -36,9 +37,11 @@ interface IncomeViewProps {
 
 export const IncomeExpenseView = () => {
 
+    const { portfolio } = useUserStore();
+
     return <View style={styles.card}>
-        <IncomeView title="Income" amount="$9000" growth="$500" />
-        <IncomeView title="Expense" amount="$9000" growth="$500" hasBorder />
+        <IncomeView title="Income" amount={`$${portfolio.income.last_month.toLocaleString()}`} growth={`$${portfolio.income.change.toLocaleString()}`} />
+        <IncomeView title="Expense" amount={`$${portfolio.expense.last_month.toLocaleString()}`} growth={`$${portfolio.expense.change.toLocaleString()}`} />
     </View>;
 };
 

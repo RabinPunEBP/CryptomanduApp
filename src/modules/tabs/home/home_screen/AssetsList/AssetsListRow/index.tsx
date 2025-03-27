@@ -9,7 +9,7 @@ export const AssetsListRow = (props: AssetsListRowProps) => {
             <Image src={item.coinImgUrl} style={styles.itemImage} />
             <Text style={styles.itemDescription} numberOfLines={1} ellipsizeMode="tail">{item.description}</Text>
         </View>
-        <Text style={{ ...styles.itemBalance, color: item.gain ? AppColors().semantics.success : AppColors().semantics.failure }}>${item.amount}</Text>
+        <Text style={{ ...styles.itemBalance, color: item.gain ? AppColors().semantics.success : AppColors().semantics.failure }}>${item.amount.toLocaleString()}</Text>
     </View>;
 };
 
@@ -21,7 +21,7 @@ export interface AssetInformation {
     id: string;
     coinImgUrl: string;
     description: string;
-    amount: string;
+    amount: number;
     gain: boolean;
 }
 

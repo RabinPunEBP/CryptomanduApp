@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import AppColors from '../../../../../assets/colors/AppColors';
 import { Typography } from '../../../../../styles/typography';
 import { useUserStore } from '../../../../../store/user_store';
+import { thousandToK } from '../../../../../helpers/currency_formatter';
 
 export const BalanceCard = (props: BalanceCardProps) => {
 
@@ -22,11 +23,11 @@ export const BalanceCard = (props: BalanceCardProps) => {
             <Image source={require('../../../../../assets/images/background_image.png')} style={{ position: 'absolute', height: imageWidth, width: imageWidth, resizeMode: 'contain', top: (-imageWidth * 0.78), right: (-imageWidth * 0.45) }} />
             <Text style={styles.cardTitle}>Current Balance</Text>
             <View style={{ ...styles.flexRowCenter, marginVertical: 12 }}>
-                <Text style={styles.balance}>{portfolio.current_balance}</Text>
+                <Text style={styles.balance}>${thousandToK(portfolio.current_balance)}</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <View style={styles.statusContainer}>
                         <Image source={require('../../../../../assets/images/status_down_icon.png')} style={styles.statusIcon} />
-                        <Text style={styles.statusText}>{portfolio.income.last_month}</Text>
+                        <Text style={styles.statusText}>${portfolio.income.last_month.toLocaleString()}</Text>
                     </View>
                     <Text style={styles.statusText}>since last month</Text>
                 </View>
@@ -36,14 +37,14 @@ export const BalanceCard = (props: BalanceCardProps) => {
                     <Image source={require('../../../../../assets/images/income_icon.png')} style={styles.incomeIcon} />
                     <View style={{ marginLeft: 6 }}>
                         <Text style={styles.incomeText}>Income</Text>
-                        <Text style={styles.incomeBalance}>{portfolio.income.last_month}</Text>
+                        <Text style={styles.incomeBalance}>${portfolio.income.last_month.toLocaleString()}</Text>
                     </View>
                 </View>
                 <View style={{ marginLeft: 16, flex: 1, ...styles.flexRowCenter }}>
                     <Image source={require('../../../../../assets/images/expense_icon.png')} style={styles.incomeIcon} />
                     <View style={{ marginLeft: 6 }}>
                         <Text style={styles.incomeText}>Expense</Text>
-                        <Text style={styles.incomeBalance}>{portfolio.expense.last_month}</Text>
+                        <Text style={styles.incomeBalance}>${portfolio.expense.last_month.toLocaleString()}</Text>
                     </View>
                 </View>
             </View>
