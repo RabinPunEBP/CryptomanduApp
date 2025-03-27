@@ -82,10 +82,6 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
     const barGraphData: IncomeExpenseData[][] = [
         [
             {
-                income: 1000,
-                expense: 2500,
-            },
-            {
                 income: 2200,
                 expense: 2300,
             },
@@ -111,10 +107,6 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
             },
         ],
         [
-            {
-                income: 2200,
-                expense: 2300,
-            },
             {
                 income: 2000,
                 expense: 2100,
@@ -146,10 +138,6 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
                 expense: 2300,
             },
             {
-                income: 2000,
-                expense: 2100,
-            },
-            {
                 income: 2400,
                 expense: 2500,
             },
@@ -174,10 +162,6 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
             {
                 income: 2200,
                 expense: 2000,
-            },
-            {
-                income: 2450,
-                expense: 2230,
             },
             {
                 income: 2200,
@@ -211,10 +195,6 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
             },
             {
                 income: 2200,
-                expense: 2300,
-            },
-            {
-                income: 2200,
                 expense: 2000,
             },
             {
@@ -238,10 +218,6 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
             {
                 income: 2200,
                 expense: 2300,
-            },
-            {
-                income: 2400,
-                expense: 2500,
             },
             {
                 income: 2200,

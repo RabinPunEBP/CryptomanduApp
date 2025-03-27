@@ -12,11 +12,11 @@ export interface IncomeExpenseData {
 const convertDataToBarChartData = (data: IncomeExpenseData[]) => {
     const mappedGraphDataPoints = data.map((datum) => [{
         value: datum.income,
-        frontColor: '#006DFF',
-        gradientColor: '#009FFF',
+        frontColor: AppColors().semantics.success,
+        gradientColor: AppColors().semantics.success,
         spacing: 2,
     },
-    { value: datum.expense, frontColor: '#3BE9DE', gradientColor: '#93FCF8' }]);
+    { value: datum.expense, frontColor: AppColors().semantics.failure, gradientColor: AppColors().semantics.failure }]);
     return mappedGraphDataPoints.flatMap((e) => e);
 };
 
