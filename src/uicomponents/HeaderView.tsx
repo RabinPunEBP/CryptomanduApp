@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontFamily: 'Manrope-Bold',
         fontSize: 18,
-        color: '#ffffff',
+        color: 'white',
     },
     headerButtons: {
         flexDirection: 'row',

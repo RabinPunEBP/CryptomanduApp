@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'Manrope-Bold',
         fontSize: 14,
-        color: '#ffffff',
+        color: 'white',
     },
     caption: {
         fontFamily: 'Manrope-Medium',
         fontSize: 11,
-        color: '#ffffff',
+        color: 'white',
     },
     transactionIcon: {
         height: 36,

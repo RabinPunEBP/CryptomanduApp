@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontFamily: 'Manrope-Bold',
         fontSize: 14,
-        color: '#ffffff',
+        color: 'white',
     },
     balance: {
         fontFamily: 'Manrope-SemiBold',
         fontSize: 40,
-        color: '#ffffff',
+        color: 'white',
     },
     statusContainer: {
         backgroundColor: AppColors().semantics.failure,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         paddingLeft: 4,
         fontFamily: 'Manrope-Medium',
         fontSize: 11,
-        color: '#ffffff',
+        color: 'white',
     },
     incomeExpenditureContainer: {
         flexDirection: 'row',
@@ -105,11 +105,11 @@ const styles = StyleSheet.create({
     incomeText: {
         fontFamily: 'Manrope-Regular',
         fontSize: 11,
-        color: '#ffffff',
+        color: 'white',
     },
     incomeBalance: {
         fontFamily: 'Manrope-Bold',
         fontSize: 14,
-        color: '#ffffff',
+        color: 'white',
     },
 });
