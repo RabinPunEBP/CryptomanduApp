@@ -12,7 +12,8 @@ import { useEffect, useState } from 'react';
 import { AreaChartView } from '../../../../uicomponents/AreaChartView';
 import BarPairWithLine from '../../../../uicomponents/BarGraphView';
 import { ChartSegmentedControl } from './ChartSegmentControl';
-import ChartApiService, { GetChartDataResponse } from '../../../../api_services/ChartApiService';
+import ChartApiService from '../../../../api_services/ChartApiService';
+import { useTransactionsHistoryStore } from '../../../../store/transactions_history_store';
 
 interface CurrentBalanceScreenProps {
     navigation: StackNavigationProp<HomeNavigationParams>,
@@ -23,7 +24,7 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
     const [selectedIndex, setSelectedIndex] = useState(5);
     const [selectedChartIndex, setSelectedChartIndex] = useState(0);
 
-    const [chartData, setChartData] = useState<GetChartDataResponse>();
+    const { chartData } = useTransactionsHistoryStore();
 
     const { getChartdata } = ChartApiService();
 
@@ -34,8 +35,7 @@ export const CurrentBalanceScreen = ({ navigation }: CurrentBalanceScreenProps) 
 
     const fetChartData = async () => {
         try {
-            const data = await getChartdata();
-            setChartData(data);
+            await getChartdata();
         } catch (e) {
             Alert.alert('Chart data fetch failure.');
         }

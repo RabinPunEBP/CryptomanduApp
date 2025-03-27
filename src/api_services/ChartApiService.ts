@@ -3,6 +3,7 @@ import { NetworkClient } from './NetworkClient';
 import { API } from './API';
 import { TrendData } from '../uicomponents/AreaChartView';
 import { IncomeExpenseData } from '../uicomponents/BarGraphView';
+import { useTransactionsHistoryStore } from '../store/transactions_history_store';
 
 export interface GetChartDataResponse {
     area_chart: {
@@ -16,10 +17,11 @@ export interface GetChartDataResponse {
 export default function ChartApiService() {
 
     const abortController = new AbortController();
+    const { updateChartData } = useTransactionsHistoryStore();
 
     const getChartdata = async () => {
         const response: GetChartDataResponse = await NetworkClient('get', API.chart.getChartdata, abortController.signal);
-        return response;
+        updateChartData(response);
     };
 
     useEffect(() => {
